@@ -1,0 +1,5 @@
+<% posts.each do |post| %>
+  <li>
+    <h5 class="title"><%= link_to post.title, :controller => 'posts', :action => 'show', :id => post %></h5>
+  </li>
+<% end %>

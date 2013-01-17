@@ -1,0 +1,11 @@
+<h2><%= @user.email %></h2>
+----------------------------------------------------------------------------------------------------------------------------
+<h3>There are <%= @user.posts.count %> posts in all. </h3>
+<%= render 'posts/post_list', posts: @user.posts %>
+----------------------------------------------------------------------------------------------------------------------------
+<h3>And comments of others'posts.</h3>
+<% @user.comments.each do |comment| %>
+  <li>
+    Commented <span>"<%= comment.body %>"</span> on <%= link_to comment.post.title, comment.post %> <%= time_ago_in_words(comment.created_at)  %> ago.
+  </li>
+<% end %>

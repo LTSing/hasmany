@@ -1,0 +1,17 @@
+<h1>Listing posts</h1>
+<br /> <br />
+
+<% @posts.each do |post| %>
+  <li>
+    <h3 class="title"><%= link_to post.title, :controller => 'posts', :action => 'show', :id => post %></h3>
+    
+    <h5>Create by <%= link_to post.user.email,post.user %> at <%= time_tag(post.created_at) %> </h5>
+    <%=raw markdown(truncate(post.content, :length => 80, :omission => '...')) %>
+  
+    <%= link_to '查看全文', :controller => 'posts', :action => 'show', :id => post %>>>
+  </li>
+  ...............................................................................................................................................................................
+<% end %>
+
+<%= will_paginate @posts %>
+
