@@ -21,10 +21,9 @@
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 <h5>Tag:</h5>
 <% if @post.tags.exists? %>
-  <%= link_to @post.tags.name, @post.tags %>   
-  
-  这里不会正确的显示tag的名字。而是不管是什么tag都显示Tag。link的链接没问题
-  
+  <%= @post.tags.each do |tag| %>
+    <%= link_to tag.name, tag %>
+  <% end %>
 <% else %>
   There are no tags for this post.
 <% end -%>
