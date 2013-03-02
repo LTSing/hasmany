@@ -94,6 +94,9 @@
             <div class="well sidebar-nav">
               <h3>Tags</h3>
               <ul class="nav nav-list">
+                <% @tags.each do |tag| %>
+                <li><%= link_to tag.name, tag_path(tag) %> </li>
+                <% end %>
                 <li><%= link_to '瞎扯蛋', :controller => 'tags', :action => 'show', :id => '1' %></li>
                 <li><%= link_to '扯蛋', :controller => 'tags', :action => 'show', :id => '2' %></li>
                 <li><%= link_to '扯馄蛋', :controller => 'tags', :action => 'show', :id => '3' %></li>
